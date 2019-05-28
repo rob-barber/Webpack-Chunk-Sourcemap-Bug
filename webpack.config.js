@@ -6,8 +6,7 @@ module.exports = {
     devtool: 'eval-source-map',
 
     entry: {
-        'main': './src/index.js',
-        'second': './src/second.js'
+        'main': './src/index.js'
     },
     output: {
         filename: '[name].js',
@@ -18,25 +17,10 @@ module.exports = {
      contentBase: './dist'
     },
 
-    module: {
-        rules: [
-            {
-                test: /\.m?js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
-            }
-        ]
-    },
-
-    // optimization: {
-    //     splitChunks: {
-    //         chunks: "all",
-    //         minSize: 1
-    //     }
-    // }
+    optimization: {
+        splitChunks: {
+            chunks: "all",
+            minSize: 1
+        }
+    }
 };
